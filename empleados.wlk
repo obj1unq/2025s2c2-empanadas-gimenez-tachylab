@@ -11,7 +11,7 @@ object galvan {
     }
     method cobrar() {
         if (sueldo >= deuda){
-            dinero = sueldo - deuda
+            dinero = dinero + (sueldo - deuda)
             deuda = 0
         } 
         else {
@@ -23,7 +23,7 @@ object galvan {
     }
     method gastar(cantidad) {
         if (cantidad >= dinero){
-            deuda = cantidad - dinero
+            deuda = deuda + (cantidad - dinero)
             dinero = 0
         }
         else {
