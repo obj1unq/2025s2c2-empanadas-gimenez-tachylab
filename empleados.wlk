@@ -29,10 +29,10 @@ object galvan {
         else {
             dinero = dinero - cantidad
         }
-       
+    
     }   
     method deuda() {
-      return deuda
+        return deuda
     }
 }
 
@@ -63,7 +63,16 @@ object gimenez {
         return fondo
     }
     method pagarSueldo(empleado) {
+        self.validarPagarSueldo(empleado)
         fondo = fondo - empleado.sueldo()
         empleado.cobrar()
+    }
+    method validarPagarSueldo(empleado) {
+        if (not self.puedePagarSueldo(empleado)) {
+            self.error("No hay fondos para pagar el sueldo de " + empleado) 
+        }
+    }
+    method puedePagarSueldo(empleado) {
+        return fondo >= empleado.sueldo()
     }
 }
