@@ -1,0 +1,15 @@
+import empleados.*
+
+describe "Test de los empleados incorporando el concepto de excepciones" {
+    test "Verificar que salte error si el limite  de los fondos de Gimenez no alcanza para pagarle Galvan" {
+        gimenez.fondo(15000)
+        galvan.sueldo(15001)
+        assert.throwsException({ gimenez.pagarSueldo(galvan) })
+    }
+
+    test "Verificar que el error no salte si Gimenez tiene suficientes fondos para pagarle Galvan" {
+        gimenez.fondo(15001)
+        galvan.sueldo(15000)
+        assert.doesNotThrowException({gimenez.pagarSueldo(galvan)})
+    }
+}
