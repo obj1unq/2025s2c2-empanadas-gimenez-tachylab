@@ -62,6 +62,9 @@ object gimenez {
     method fondo(){
         return fondo
     }
+    method fondo(_fondo) {
+        fondo = _fondo
+    }
     method pagarSueldo(empleado) {
         self.validarPagarSueldo(empleado)
         fondo = fondo - empleado.sueldo()
